@@ -154,14 +154,17 @@ DAY001/
 ```rust
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) {
-    let peripherals = embassy_rp::init(Default::default());
-    let mut led = Output::new(peripherals.PIN_25, Level::Low);
-    
+    let p = embassy_rp::init(Default::default());
+    let mut led = Output::new(p.PIN_16, Level::Low);
+    let mut controller = LedController::new();
     loop {
-        led.set_high();
-        Timer::after_millis(1000).await;
-        led.set_low();
-        Timer::after_millis(1000).await;
+        let state = controller.toggle();
+        if led_state_to_level(state) {
+            led.set_high();
+        } else {
+            led.set_low();
+        }
+        Timer::after_millis(controller.delay_ms()).await;
     }
 }
 ```
@@ -224,7 +227,7 @@ You should see in your terminal:
 ```
 INFO  DAY001: Blink LED - Starting!
 INFO  Embassy Rust on Raspberry Pi Pico 2 (RP2350)
-INFO  LED initialized on GPIO 25
+INFO  LED initialized on GPIO 16
 INFO  Starting blink loop with 1 second interval...
 INFO  LED ON (blink #0)
 INFO  LED OFF
