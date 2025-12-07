@@ -371,11 +371,9 @@ Once you've mastered blinking a single LED, you're ready for:
 
 **Congratulations!** 🎉 You've completed your first Embassy Rust project on the Pico 2. This simple blink is the foundation for all 365 projects ahead. The skills you learned today—GPIO control, async programming, and the build/flash workflow—will be used throughout this journey.
 
-*"A journey of 365 projects begins with a single blink."* 🦀
-
 <br>
 
-**Project Status**: ⭐ Beginner | **Estimated Time**: 30-60 minutes | **Success Rate**: 99%
+# ⭐ DAY002: Blink LEDs in Sequence [HERE](https://github.com/mytechnotalent/ERP2-DAY002)
 
 <br>
 
