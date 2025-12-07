@@ -335,14 +335,6 @@ DEFMT_LOG = "warn"   # Less verbose
 
 <br>
 
-# 📖 Next Steps
-Once you've mastered blinking a single LED, you're ready for:
-- **DAY002**: Blink multiple LEDs in sequence
-- **DAY003**: Traffic light simulation
-- **DAY004**: LED brightness control with PWM
-
-<br>
-
 # 🔗 Resources
 
 ## Official Documentation
