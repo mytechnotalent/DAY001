@@ -61,7 +61,7 @@ This is the first project in the **365 Pico2 RP2350 Project Ideas** series. We'r
 │  Raspberry Pi Pico 2    │
 │                         │
 │  ┌────────┐             │
-│  │  GP25  ├─────┐       │  (or use GP15 for external LED)
+│  │  GP16  ├─────┐       │  (or use GP15 for external LED)
 │  └────────┘     │       │
 │                 │       │
 │  ┌────────┐     │       │
@@ -76,16 +76,16 @@ This is the first project in the **365 Pico2 RP2350 Project Ideas** series. We'r
                              └─────────┘
 
 Connection Steps:
-1. GP25 (Pin 25) → 100Ω Resistor → LED Anode (longer leg, +)
+1. GP16 (Pin 25) → 100Ω Resistor → LED Anode (longer leg, +)
 2. LED Cathode (shorter leg, -) → GND
 
-Note: The Pico 2 has a built-in LED on GP25, so you can skip
+Note: The Pico 2 has a built-in LED on GP16, so you can skip
       the external circuit initially and just run the code!
 ```
 
 ### Pin Information
 
-- **GP25**: Built-in LED on Pico 2 (perfect for testing)
+- **GP16**: Built-in LED on Pico 2 (perfect for testing)
 - **GP15**: Alternative GPIO pin for external LED
 - **GND**: Ground connection (any GND pin works)
 
@@ -168,7 +168,7 @@ async fn main(_spawner: Spawner) {
 
 **Explanation**:
 - `embassy_rp::init()`: Initializes the RP2350 hardware
-- `Output::new()`: Configures GP25 as an output, starting LOW (off)
+- `Output::new()`: Configures GP16 as an output, starting LOW (off)
 - `led.set_high()`: Sets pin to 3.3V (LED on)
 - `led.set_low()`: Sets pin to 0V (LED off)
 - `Timer::after_millis()`: Async delay that doesn't block
@@ -268,7 +268,7 @@ rustup target add thumbv8m.main-none-eabihf
 **Solutions**:
 1. Check the wiring (resistor and polarity)
 2. Verify you're using the correct GPIO pin
-3. Try the built-in LED first (GP25, no wiring needed)
+3. Try the built-in LED first (GP16, no wiring needed)
 4. Check if the LED is functional (test with a battery)
 
 ### Issue: Linker errors
